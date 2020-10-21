@@ -1,3 +1,18 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/PlateformePathRond.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/PlateformeDepVert.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/PlateformeDepHoriz.tscn" type="PackedScene" id=3]
 
 [node name="Main" type="Node2D"]
+
+[node name="PlateformePathRond" parent="." instance=ExtResource( 1 )]
+position = Vector2( 235.577, 509.838 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="PlateformeDepVertical" parent="." instance=ExtResource( 3 )]
+position = Vector2( 350.816, 141.279 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="PlateformeDepHoriz" parent="PlateformeDepVertical" instance=ExtResource( 2 )]
+position = Vector2( 844.497, 434.948 )
