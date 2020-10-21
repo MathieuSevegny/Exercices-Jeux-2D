@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/Plateforms/bleue.png" type="Texture" id=1]
 [ext_resource path="res://animations/dephorizontal.tres" type="Animation" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 192, 56 )
 
 [node name="PlateformeDepVertical" type="Node2D"]
 
@@ -9,6 +12,13 @@
 autoplay = "Deplacement horizontal"
 "anims/Deplacement horizontal" = ExtResource( 2 )
 
-[node name="Node2D" type="Sprite" parent="."]
-position = Vector2( 238.213, 65.176 )
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+collision_mask = 0
+
+[node name="Node2D" type="Sprite" parent="KinematicBody2D"]
 texture = ExtResource( 1 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 190.671, 56 )
+shape = SubResource( 1 )

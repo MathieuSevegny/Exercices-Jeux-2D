@@ -1,0 +1,61 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://assets/PlayerSprites/Idle/frame_01_delay-0.1s.png" type="Texture" id=1]
+[ext_resource path="res://assets/PlayerSprites/Idle/frame_02_delay-0.1s.png" type="Texture" id=2]
+[ext_resource path="res://assets/PlayerSprites/Run/frame_1_delay-0.1s.png" type="Texture" id=3]
+[ext_resource path="res://assets/PlayerSprites/Jump/jump.png" type="Texture" id=4]
+[ext_resource path="res://assets/PlayerSprites/Run/frame_2_delay-0.1s.png" type="Texture" id=5]
+[ext_resource path="res://assets/PlayerSprites/Run/frame_3_delay-0.1s.png" type="Texture" id=6]
+[ext_resource path="res://assets/PlayerSprites/Idle/frame_08_delay-0.1s.png" type="Texture" id=7]
+[ext_resource path="res://assets/PlayerSprites/Run/frame_4_delay-0.1s.png" type="Texture" id=8]
+[ext_resource path="res://assets/PlayerSprites/Run/frame_5_delay-0.1s.png" type="Texture" id=9]
+[ext_resource path="res://assets/PlayerSprites/Run/frame_7_delay-0.1s.png" type="Texture" id=10]
+[ext_resource path="res://assets/PlayerSprites/Idle/frame_09_delay-0.1s.png" type="Texture" id=11]
+[ext_resource path="res://assets/PlayerSprites/Idle/frame_10_delay-0.1s.png" type="Texture" id=12]
+[ext_resource path="res://assets/PlayerSprites/Run/frame_6_delay-0.1s.png" type="Texture" id=13]
+[ext_resource path="res://assets/PlayerSprites/Idle/frame_04_delay-0.1s.png" type="Texture" id=14]
+[ext_resource path="res://assets/PlayerSprites/Idle/frame_03_delay-0.1s.png" type="Texture" id=15]
+[ext_resource path="res://assets/PlayerSprites/Idle/frame_05_delay-0.1s.png" type="Texture" id=16]
+[ext_resource path="res://assets/PlayerSprites/Idle/frame_00_delay-0.1s.png" type="Texture" id=17]
+[ext_resource path="res://assets/PlayerSprites/Idle/frame_06_delay-0.1s.png" type="Texture" id=18]
+[ext_resource path="res://assets/PlayerSprites/Idle/frame_07_delay-0.1s.png" type="Texture" id=19]
+[ext_resource path="res://assets/PlayerSprites/Idle/frame_11_delay-0.1s.png" type="Texture" id=20]
+[ext_resource path="res://assets/PlayerSprites/Run/frame_0_delay-0.1s.png" type="Texture" id=21]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=22]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 17 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Run",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9.62808, 17.0413 )
+
+[node name="Player" type="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 2147483651
+script = ExtResource( 22 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Idle"
+frame = 4
+playing = true
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 9.51366, 17.2435 )
+shape = SubResource( 2 )

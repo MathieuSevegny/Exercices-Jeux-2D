@@ -8,7 +8,7 @@ export(NodePath) var patrol_path
 var patrol_points
 var patrol_points_index = 0
 var velocite = Vector2()
-var speed = 3000
+var speed = 2000
 var target = Vector2()
 
 # Called when the node enters the scene tree for the first time.

@@ -1,18 +1,48 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/PlateformePathRond.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/PlateformeDepVert.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/PlateformeDepHoriz.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/PlateformeNormale.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Node2D"]
 
 [node name="PlateformePathRond" parent="." instance=ExtResource( 1 )]
-position = Vector2( 235.577, 509.838 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 680.614, 224.319 )
+scale = Vector2( 0.4, 0.4 )
 
 [node name="PlateformeDepVertical" parent="." instance=ExtResource( 3 )]
-position = Vector2( 350.816, 141.279 )
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 520.06, 265.945 )
+scale = Vector2( 0.2, 0.2 )
 
-[node name="PlateformeDepHoriz" parent="PlateformeDepVertical" instance=ExtResource( 2 )]
-position = Vector2( 844.497, 434.948 )
+[node name="PlateformeDepVertical2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 375.824, 226.097 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="PlateformeDepHoriz" parent="." instance=ExtResource( 2 )]
+position = Vector2( 594.44, 382.534 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="PlateformeDepHoriz2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 412.037, 419.008 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="PlateformeNormale" parent="." instance=ExtResource( 4 )]
+position = Vector2( 904.517, 319.25 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="PlateformeNormale4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 269.979, 357.435 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="PlateformeNormale2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 783.264, 385.884 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="PlateformeNormale3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 750.712, 270.318 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 929.399, 282.86 )
