@@ -26,37 +26,39 @@ func _physics_process(delta):
 	_ctrl_player()
 	if is_jumping and is_on_floor():
 		is_jumping = false
-	velocity = move_and_slide(velocity, Vector2(0,-1))
+	velocity = move_and_slide(velocity, Vector2(0,-1)) 
 
 func _anim_player():
-	if !is_jumping:
-		if Input.is_action_pressed("move_left"):
-			anim.flip_h = true
-			anim.play("Run")
-		elif Input.is_action_pressed("move_right"):
-			anim.flip_h = false
-			anim.play("Run")
-		elif Input.is_action_pressed("move_jump"):
-			anim.play("Jump")
+	if !$"/root/Game".isFinished:
+		if !is_jumping:
+			if Input.is_action_pressed("move_left"):
+				anim.flip_h = true
+				anim.play("Run")
+			elif Input.is_action_pressed("move_right"):
+				anim.flip_h = false
+				anim.play("Run")
+			elif Input.is_action_pressed("move_jump"):
+				anim.play("Jump")
+			else:
+				anim.play("Idle")
 		else:
-			anim.play("Idle")
-	else:
-		if Input.is_action_pressed("move_left"):
-			anim.flip_h = true
-		elif Input.is_action_pressed("move_right"):
-			anim.flip_h = false
-		anim.play("Jump")
+			if Input.is_action_pressed("move_left"):
+				anim.flip_h = true
+			elif Input.is_action_pressed("move_right"):
+				anim.flip_h = false
+			anim.play("Jump")
 
 func _ctrl_player():
 	var droite = Input.is_action_pressed("move_right")
 	var gauche = Input.is_action_pressed("move_left")
 	var jump = Input.is_action_just_pressed("move_jump")
 	
-	velocity.x = 0
-	if droite:
-		velocity.x += speed
-	if gauche:
-		velocity.x -= speed
-	if jump and !is_jumping:
-		is_jumping = true
-		velocity.y = impulsion
+	if !$"/root/Game".isFinished:
+		velocity.x = 0
+		if droite:
+			velocity.x += speed
+		if gauche:
+			velocity.x -= speed
+		if jump and !is_jumping:
+			is_jumping = true
+			velocity.y = impulsion
