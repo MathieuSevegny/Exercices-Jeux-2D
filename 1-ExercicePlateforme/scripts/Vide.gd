@@ -13,11 +13,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
-#	pass
+#	
 
 
-func _on_Area2D_body_entered(body):
+func _on_Vide_body_entered(body):
 	if "Player" in body.name:
-		if !body.is_jumping:
-			$"/root/Game".isFinished = true
-			body.velocity = Vector2()
+		body._dying()

@@ -7,9 +7,12 @@ extends KinematicBody2D
 export var speed = 250
 export var gravity = 1000
 export var impulsion = -400
+export var nbDeVie = 3
 var is_jumping = false
 var velocity = Vector2(0,0)
 onready var anim = $AnimatedSprite
+var isFinished = false
+var isDead = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -29,7 +32,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2(0,-1)) 
 
 func _anim_player():
-	if !$"/root/Game".isFinished:
+	if !isFinished:
 		if !is_jumping:
 			if Input.is_action_pressed("move_left"):
 				anim.flip_h = true
@@ -53,7 +56,7 @@ func _ctrl_player():
 	var gauche = Input.is_action_pressed("move_left")
 	var jump = Input.is_action_just_pressed("move_jump")
 	
-	if !$"/root/Game".isFinished:
+	if !isFinished:
 		velocity.x = 0
 		if droite:
 			velocity.x += speed
@@ -62,3 +65,10 @@ func _ctrl_player():
 		if jump and !is_jumping:
 			is_jumping = true
 			velocity.y = impulsion
+func _dying():
+	nbDeVie -= 1
+	if nbDeVie < 1:
+		isDead = true
+	else:
+		position.x = 929.399
+		position.y = 282.86
