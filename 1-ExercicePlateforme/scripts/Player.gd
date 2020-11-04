@@ -17,7 +17,7 @@ var isDead = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	set_vie()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -67,8 +67,12 @@ func _ctrl_player():
 			velocity.y = impulsion
 func _dying():
 	nbDeVie -= 1
+	set_vie()
 	if nbDeVie < 1:
 		isDead = true
 	else:
 		position.x = 929.399
 		position.y = 282.86
+
+func set_vie():
+	$Camera2D/Panel/Label.text = "Nombre de vie : " + str(nbDeVie)

@@ -19,10 +19,10 @@ func _process(delta):
 		$Player.isFinished = true
 		$Player.velocity.x = 0
 		$Player/AnimatedSprite.play("Idle")
-		$EcranFin/Panel/Label.text = "Bravo!!!"
-		$EcranFin._fini()
+		$UI/Fin/Label.text = "Bravo!!!"
+		$UI._fini()
 	if $Player.isDead:
 		$Player/Camera2D.clear_current()
 		$CameraFin.make_current()
-		$EcranFin/Panel/Label.text = "Vous êtes mort..."
-		$EcranFin._fini()
+		$UI/Fin/Label.text = "Vous êtes mort..."
+		$UI._fini()

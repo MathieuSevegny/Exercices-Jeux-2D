@@ -15,7 +15,7 @@
 script = ExtResource( 8 )
 
 [node name="Background" parent="." instance=ExtResource( 10 )]
-position = Vector2( -659.817, -451.059 )
+position = Vector2( -651.808, -346.941 )
 scale = Vector2( 1.10454, 1.04007 )
 
 [node name="PlateformePathRond" parent="." instance=ExtResource( 1 )]
@@ -69,27 +69,27 @@ scale = Vector2( 0.4, 0.4 )
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 930.844, 284.706 )
 
-[node name="EcranFin" type="Control" parent="."]
+[node name="UI" type="Control" parent="."]
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="EcranFin"]
+[node name="Fin" type="Panel" parent="UI"]
 visible = false
 margin_left = 373.255
 margin_top = 169.357
 margin_right = 663.255
 margin_bottom = 325.357
 
-[node name="Label" type="Label" parent="EcranFin/Panel"]
+[node name="Label" type="Label" parent="UI/Fin"]
 margin_right = 289.0
 margin_bottom = 97.0
 text = "Bravo!!"
 align = 1
 valign = 1
 
-[node name="Button" type="Button" parent="EcranFin/Panel"]
+[node name="Button" type="Button" parent="UI/Fin"]
 margin_left = 89.6683
 margin_top = 80.2295
 margin_right = 194.668
@@ -104,4 +104,4 @@ position = Vector2( 685.992, 605.811 )
 
 [node name="CameraFin" type="Camera2D" parent="."]
 position = Vector2( 517.036, 266.77 )
-[connection signal="pressed" from="EcranFin/Panel/Button" to="EcranFin" method="_on_Button_pressed"]
+[connection signal="pressed" from="UI/Fin/Button" to="UI" method="_on_Button_pressed"]

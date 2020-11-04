@@ -30,15 +30,15 @@ animations = [ {
 "name": "Jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 20 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 21 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "Run",
 "speed": 8.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -52,7 +52,7 @@ script = ExtResource( 22 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 3
+frame = 6
 playing = true
 centered = false
 
@@ -62,3 +62,19 @@ shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="Panel" type="Panel" parent="Camera2D"]
+margin_left = 368.0
+margin_top = -301.0
+margin_right = 513.0
+margin_bottom = -261.0
+
+[node name="Label" type="Label" parent="Camera2D/Panel"]
+margin_right = 145.0
+margin_bottom = 41.0
+text = "Nombre de vie : 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
